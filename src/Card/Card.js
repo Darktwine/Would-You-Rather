@@ -2,7 +2,7 @@ import React from 'react';
 // import {Container, Card} from 'react-bootstrap'
 import './Card.css';
 
-function Card({title,imgURL,trait,song,hero}){
+function Card({title,imgURL,food,trait,song,hero}){
     return(
         <div className='card-container'>
             <div className='image-container'>
@@ -14,7 +14,7 @@ function Card({title,imgURL,trait,song,hero}){
                 </div>
                 <div className='card-body'>
                     <p>Personality Trait: {trait}</p>
-                    <p>Favorite Food: {trait}</p>
+                    <p>Favorite Food: {food}</p>
                     <p>Favorite Song: {song}</p>
                     <p>Favorite SuperHero: {hero}</p>
                 </div>
