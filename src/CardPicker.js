@@ -20,6 +20,10 @@ class MainPage extends Component {
             rightPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
             rightSpecialAbility: "fireball",
             rightTrait: "spicy",
+            points: 0,
+            mostPoints: 0,
+            chosenPokemon: "none",
+            winningPokemon: "none",
         };
     }
 
@@ -111,17 +115,39 @@ class MainPage extends Component {
         }
     }
 
+    changePoints = (name) => {
+        let newPoints = this.state.points + 1;
+        //changes if different card is picked
+        if (this.state.chosenPokemon != name) {
+            newPoints = 1;
+        }
+        //handles changing winning pokemon
+        if (this.state.mostPoints < newPoints) {
+            this.setState({
+                mostPoints: newPoints,
+                winningPokemon: name,
+            })
+        }
+        this.setState({
+            points: newPoints,
+            chosenPokemon: name,
+        })
+    }
+
     handleChangeLeftCard = () => {
+        this.changePoints(this.state.rightPokeName);
         this.fetchLeftPokeData();
         this.fetchLeftAbility();
     }
 
     handleChangeRightCard = () => {
+        this.changePoints(this.state.leftPokeName);
         this.fetchRightPokeData();
         this.fetchRightAbility();
     }
 
     render() {
+        console.log(this.state.points);
         return (
             <div className="App">
                 <h2>
@@ -161,6 +187,10 @@ class MainPage extends Component {
                             I want this one!
                         </button>
                     </div>
+                </div>
+                <div>
+                    <p className="point">Points for {this.state.chosenPokemon}: {this.state.points} </p>
+                    <p className="point">Winning pokemon: {this.state.winningPokemon} with {this.state.mostPoints} points</p>
                 </div>
             </div>
         )

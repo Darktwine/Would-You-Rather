@@ -60,3 +60,10 @@ h2{
   display: table;
   clear: both;
 }
+
+.point {
+  padding-top: 10px;
+  color: #282c34;
+  font-size: 20px;
+  font-family: 'Helvetica';
+}
