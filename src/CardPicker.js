@@ -81,6 +81,7 @@ class MainPage extends Component {
 
     fetchLeftAbility = async () => {
         let randomSpellIndex = this.randomSpellIndex();
+        console.log(randomSpellIndex);
         try {
             let response = await axios.get(`https://www.dnd5eapi.co/api/spells`);
             // console.log(response);
@@ -147,7 +148,6 @@ class MainPage extends Component {
     }
 
     render() {
-        console.log(this.state.points);
         return (
             <div className="App">
                 <h2>
@@ -155,6 +155,10 @@ class MainPage extends Component {
                     ...Would You Rather...
                     </u>
                 </h2>
+                <div className='pointcontainer'>
+                    <p className="point">Points for {this.state.chosenPokemon}: {this.state.points} </p>
+                    <p className="point">Winning pokemon: {this.state.winningPokemon} with {this.state.mostPoints} points</p>
+                </div>
                 <div className='row'>
                     <div className="column">
                         <Card 
@@ -187,10 +191,6 @@ class MainPage extends Component {
                             I want this one!
                         </button>
                     </div>
-                </div>
-                <div>
-                    <p className="point">Points for {this.state.chosenPokemon}: {this.state.points} </p>
-                    <p className="point">Winning pokemon: {this.state.winningPokemon} with {this.state.mostPoints} points</p>
                 </div>
             </div>
         )

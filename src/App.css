@@ -62,10 +62,12 @@ h2{
 }
 
 .point {
-  padding-top: 10px;
   color: #282c34;
   font-size: 20px;
   font-family: 'Helvetica';
+}
+.pointcontainer {
+  padding-bottom: 20px;
 }
 .btn {
   background-color: #496ca8; /* Green */
