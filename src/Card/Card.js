@@ -2,7 +2,7 @@ import React from 'react';
 // import {Container, Card} from 'react-bootstrap'
 import './Card.css';
 
-function Card({title,imgURL,food,trait,song,hero}){
+function Card({title,imgURL, ability, food, trait, song, hero}){
     return(
         <div className='card-container'>
             <div className='image-container'>
@@ -13,16 +13,17 @@ function Card({title,imgURL,food,trait,song,hero}){
                     <h1>{title}</h1>
                 </div>
                 <div className='card-body'>
+                    <p>Special Ability: {ability}</p>
                     <p>Personality Trait: {trait}</p>
                     <p>Favorite Food: {food}</p>
                     <p>Favorite Song: {song}</p>
                     <p>Favorite SuperHero: {hero}</p>
                 </div>
-                <div className='btn'>
-                    <button>
-                        <a>This One!</a>
+                {/* <div className='btn'>
+                    <button type="button" onClick={handleChangeCard}>
+                        This One!
                     </button>
-                </div>
+                </div> */}
             </div>
             
 
