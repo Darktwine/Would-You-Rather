@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Container, Card} from 'react-bootstrap'
 import './Card.css';
 
 function Card({title,imgURL, ability, quote, food, trait, song, hero}){
