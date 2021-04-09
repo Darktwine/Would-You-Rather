@@ -1,6 +1,5 @@
 import { Component } from "react";
 import './App.css';
-// import {Container, Card} from 'react-bootstrap'
 import Card from './Card/Card';
 import axios from 'axios';
 
@@ -13,12 +12,14 @@ class MainPage extends Component {
             leftPokeName: "Pikachu",
             leftPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
             leftSpecialAbility: "heal",
+            leftAnimeQuote: "I will never forget his name.",
             leftTrait: "happy",
 
             // state for Right Card
             rightPokeName: "Charmander",
             rightPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
             rightSpecialAbility: "fireball",
+            rightAnimeQuote: "Step on him like he is an ant!",
             rightTrait: "spicy",
             points: 0,
             mostPoints: 0,
@@ -135,16 +136,45 @@ class MainPage extends Component {
         })
     }
 
+    fetchLeftAnimeQuote = async () => {
+        try {
+            let response = await axios.get(`https://animechan.vercel.app/api/random`);
+            // let responseData = await response.data.results[qu]
+            let randomQuote = await response.data.quote;
+            console.log(response);
+            this.setState({
+                leftAnimeQuote: randomQuote,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    fetchRightAnimeQuote = async () => {
+        try {
+            let response = await axios.get(`https://animechan.vercel.app/api/random`);
+            // console.log(response);
+            let randomQuote = await response.data.quote;
+            this.setState({
+                rightAnimeQuote: randomQuote,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     handleChangeLeftCard = () => {
         this.changePoints(this.state.rightPokeName);
         this.fetchLeftPokeData();
         this.fetchLeftAbility();
+        this.fetchLeftAnimeQuote();
     }
 
     handleChangeRightCard = () => {
         this.changePoints(this.state.leftPokeName);
         this.fetchRightPokeData();
         this.fetchRightAbility();
+        this.fetchRightAnimeQuote();
     }
 
     render() {
@@ -165,6 +195,7 @@ class MainPage extends Component {
                             title={this.state.leftPokeName}
                             imgURL={this.state.leftPokeSprite}
                             ability={this.state.leftSpecialAbility}
+                            quote ={this.state.leftAnimeQuote}
                             trait = 'happy'
                             food='popcorn'
                             song = 'Party in the USA'
@@ -181,6 +212,7 @@ class MainPage extends Component {
                             title={this.state.rightPokeName}
                             imgURL={this.state.rightPokeSprite}
                             ability={this.state.rightSpecialAbility}
+                            quote ={this.state.rightAnimeQuote}
                             trait = 'spicy'
                             food='pasta'
                             song='Sorry not Sorry'
