@@ -14,8 +14,8 @@ function Card({title,imgURL, ability, quote, food, trait, song, hero}){
                 </div>
                 <div className='card-body'>
                     <p>Special Ability: {ability}</p>
+                    <p>Favorite Anime Quote: "{quote}"</p>
                     <p>Personality Trait: {trait}</p>
-                    <p>Favorite Anime Quote: {quote}</p>
                     <p>Favorite Food: {food}</p>
                     <p>Favorite Song: {song}</p>
                     <p>Favorite SuperHero: {hero}</p>
