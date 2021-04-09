@@ -13,14 +13,14 @@ class MainPage extends Component {
             leftPokeName: "Pikachu",
             leftPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
             leftSpecialAbility: "heal",
-            leftQuote: "I will never forget his name.",
+            leftAnimeQuote: "I will never forget his name.",
             leftTrait: "happy",
 
             // state for Right Card
             rightPokeName: "Charmander",
             rightPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
             rightSpecialAbility: "fireball",
-            rightQuote: "Step on him like he is an ant!",
+            rightAnimeQuote: "Step on him like he is an ant!",
             rightTrait: "spicy",
             points: 0,
             mostPoints: 0,
