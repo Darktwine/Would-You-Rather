@@ -13,14 +13,16 @@ class MainPage extends Component {
             leftPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
             leftSpecialAbility: "heal",
             leftAnimeQuote: "I will never forget his name.",
-            leftTaylorswft: "happy",
+            leftTaylorswft: "Why'd I have to break what I love so much?",
+            leftKanyewst: "I'm going to personally see to it that Taylor Swift gets her masters back. Scooter is a close family friend",
 
             // state for Right Card
             rightPokeName: "Charmander",
             rightPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
             rightSpecialAbility: "fireball",
             rightAnimeQuote: "Step on him like he is an ant!",
-            rightTaylorswft: "spicy",
+            rightTaylorswft: "Life isn't how to survive the storm, it's about how to dance in the rain.",
+            rightKanyewst: "Sometimes you have to get rid of everything",
             points: 0,
             mostPoints: 0,
             chosenPokemon: "none",
@@ -169,6 +171,7 @@ class MainPage extends Component {
         this.fetchLeftAbility();
         this.fetchLeftAnimeQuote();
         this.fetchLeftTaylorswft();
+        this.fetchLeftKanyewst();
     }
 
     handleChangeRightCard = () => {
@@ -176,7 +179,32 @@ class MainPage extends Component {
         this.fetchRightPokeData();
         this.fetchRightAbility();
         this.fetchRightAnimeQuote();
-        this.fetchRightTaylorswft();  
+        this.fetchRightTaylorswft();
+        this.fetchRightKanyewst();  
+    }
+
+    fetchLeftKanyewst = async () => {
+        try {
+            let response = await axios.get(`https://api.kanye.rest/`);
+            let randomQuoteswft = await response.data.quote;
+            this.setState({
+                leftKanyewst: randomQuoteswft,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    fetchRightKanyewst = async () => {
+        try {
+            let response = await axios.get(`https://api.kanye.rest/`);
+            let randomQuoteswft = await response.data.quote;
+            this.setState({
+                rightKanyewst: randomQuoteswft,
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     fetchLeftTaylorswft = async () => {
@@ -223,8 +251,8 @@ class MainPage extends Component {
                             ability={this.state.leftSpecialAbility}
                             quote ={this.state.leftAnimeQuote}
                             trait = 'happy'
-                            taylorswft= {this.state.leftTaylorswft} 
-                            song = 'Party in the USA'
+                            taylorswft = {this.state.leftTaylorswft} 
+                            kanyewst = {this.state.leftKanyewst}
                             hero='superman'
                             handleChangeCard={this.handleChangeCard}
 
@@ -241,8 +269,8 @@ class MainPage extends Component {
                             ability={this.state.rightSpecialAbility}
                             quote ={this.state.rightAnimeQuote}
                             trait = 'spicy'
-                            taylorswft= {this.state.rightTaylorswft}
-                            song='Sorry not Sorry'
+                            taylorswft = {this.state.rightTaylorswft}
+                            kanyewst = {this.state.rightKanyewst}
                             hero='batman'
                             handleChangeCard={this.handleChangeCard}
                         />

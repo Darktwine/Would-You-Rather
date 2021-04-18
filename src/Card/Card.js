@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-function Card({title,imgURL, ability, quote, taylorswft, trait, song, hero}){
+function Card({title,imgURL, ability, quote, taylorswft, trait, kanyewst, hero}){
     return(
         <div className='card-container'>
             <div className='image-container'>
@@ -16,7 +16,7 @@ function Card({title,imgURL, ability, quote, taylorswft, trait, song, hero}){
                     <p>Favorite Anime Quote: "{quote}"</p>
                     <p>Personality Trait: {trait}</p>
                     <p>Favorite Taylor Swift Lyric: {taylorswft}</p>
-                    <p>Favorite Song: {song}</p>
+                    <p>Favorite Kanye West Lyric: {kanyewst}</p>
                     <p>Favorite SuperHero: {hero}</p>
                 </div>
                 {/* <div className='btn'>
@@ -25,7 +25,6 @@ function Card({title,imgURL, ability, quote, taylorswft, trait, song, hero}){
                     </button>
                 </div> */}
             </div>
-            
 
         </div>
     )
