@@ -13,14 +13,14 @@ class MainPage extends Component {
             leftPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
             leftSpecialAbility: "heal",
             leftAnimeQuote: "I will never forget his name.",
-            leftTrait: "happy",
+            leftTaylorswft: "happy",
 
             // state for Right Card
             rightPokeName: "Charmander",
             rightPokeSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
             rightSpecialAbility: "fireball",
             rightAnimeQuote: "Step on him like he is an ant!",
-            rightTrait: "spicy",
+            rightTaylorswft: "spicy",
             points: 0,
             mostPoints: 0,
             chosenPokemon: "none",
@@ -168,6 +168,7 @@ class MainPage extends Component {
         this.fetchLeftPokeData();
         this.fetchLeftAbility();
         this.fetchLeftAnimeQuote();
+        this.fetchLeftTaylorswft();
     }
 
     handleChangeRightCard = () => {
@@ -175,6 +176,31 @@ class MainPage extends Component {
         this.fetchRightPokeData();
         this.fetchRightAbility();
         this.fetchRightAnimeQuote();
+        this.fetchRightTaylorswft();  
+    }
+
+    fetchLeftTaylorswft = async () => {
+        try {
+            let response = await axios.get(`https://api.taylor.rest/`);
+            let randomQuoteswft = await response.data.quote;
+            this.setState({
+                leftTaylorswft: randomQuoteswft,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    fetchRightTaylorswft = async () => {
+        try {
+            let response = await axios.get(`https://api.taylor.rest/`);
+            let randomQuoteswft = await response.data.quote;
+            this.setState({
+                rightTaylorswft: randomQuoteswft,
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     render() {
@@ -197,10 +223,11 @@ class MainPage extends Component {
                             ability={this.state.leftSpecialAbility}
                             quote ={this.state.leftAnimeQuote}
                             trait = 'happy'
-                            food='popcorn'
+                            taylorswft= {this.state.leftTaylorswft} 
                             song = 'Party in the USA'
                             hero='superman'
                             handleChangeCard={this.handleChangeCard}
+
                         />
                         <button className="btn" type="button" onClick={this.handleChangeRightCard}>
                             I want this one!
@@ -214,7 +241,7 @@ class MainPage extends Component {
                             ability={this.state.rightSpecialAbility}
                             quote ={this.state.rightAnimeQuote}
                             trait = 'spicy'
-                            food='pasta'
+                            taylorswft= {this.state.rightTaylorswft}
                             song='Sorry not Sorry'
                             hero='batman'
                             handleChangeCard={this.handleChangeCard}
