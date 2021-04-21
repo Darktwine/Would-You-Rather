@@ -60,3 +60,25 @@ h2{
   display: table;
   clear: both;
 }
+
+.point {
+  color: #282c34;
+  font-size: 20px;
+  font-family: 'Helvetica';
+}
+.pointcontainer {
+  padding-bottom: 20px;
+}
+.btn {
+  background-color: #496ca8; /* Green */
+  border-radius: 8px;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 16px;
+}
+.btn:hover {
+  background-color: #2f456a;
+}

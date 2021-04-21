@@ -1,8 +1,7 @@
 import React from 'react';
-// import {Container, Card} from 'react-bootstrap'
 import './Card.css';
 
-function Card({title,imgURL,food,trait,song,hero}){
+function Card({title,imgURL, ability, quote, taylorswft, kanyewst, }){
     return(
         <div className='card-container'>
             <div className='image-container'>
@@ -13,18 +12,17 @@ function Card({title,imgURL,food,trait,song,hero}){
                     <h1>{title}</h1>
                 </div>
                 <div className='card-body'>
-                    <p>Personality Trait: {trait}</p>
-                    <p>Favorite Food: {food}</p>
-                    <p>Favorite Song: {song}</p>
-                    <p>Favorite SuperHero: {hero}</p>
+                    <p>Special Ability: {ability}</p>
+                    <p>Favorite Anime Quote: "{quote}"</p>
+                    <p>Favorite Taylor Swift Lyric: {taylorswft}</p>
+                    <p>Favorite Kanye West Lyric: {kanyewst}</p>
                 </div>
-                <div className='btn'>
-                    <button>
-                        <a>This One!</a>
+                {/* <div className='btn'>
+                    <button type="button" onClick={handleChangeCard}>
+                        This One!
                     </button>
-                </div>
+                </div> */}
             </div>
-            
 
         </div>
     )
