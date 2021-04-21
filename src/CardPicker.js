@@ -122,7 +122,7 @@ class MainPage extends Component {
     changePoints = (name) => {
         let newPoints = this.state.points + 1;
         //changes if different card is picked
-        if (this.state.chosenPokemon != name) {
+        if (this.state.chosenPokemon !== name) {
             newPoints = 1;
         }
         //handles changing winning pokemon
