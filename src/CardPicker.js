@@ -250,10 +250,8 @@ class MainPage extends Component {
                             imgURL={this.state.leftPokeSprite}
                             ability={this.state.leftSpecialAbility}
                             quote ={this.state.leftAnimeQuote}
-                            trait = 'happy'
                             taylorswft = {this.state.leftTaylorswft} 
                             kanyewst = {this.state.leftKanyewst}
-                            hero='superman'
                             handleChangeCard={this.handleChangeCard}
 
                         />
@@ -268,10 +266,8 @@ class MainPage extends Component {
                             imgURL={this.state.rightPokeSprite}
                             ability={this.state.rightSpecialAbility}
                             quote ={this.state.rightAnimeQuote}
-                            trait = 'spicy'
                             taylorswft = {this.state.rightTaylorswft}
                             kanyewst = {this.state.rightKanyewst}
-                            hero='batman'
                             handleChangeCard={this.handleChangeCard}
                         />
                         <button className="btn" type="button" onClick={this.handleChangeLeftCard}>
